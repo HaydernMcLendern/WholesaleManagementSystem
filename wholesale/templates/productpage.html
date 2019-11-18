@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="row">
+    {% for p in productdata %}
+    {% set image_url = 'static/products/' ~ p.Product_Id ~ '.png' %}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src={{image_url}} alt="Image not available" style="width:200px; height:200px">
+        <div class="caption">
+          <h3>{{p.Name}}</h3> <br>
+          <h4>${{p.Price}}</h4>
+          <h4> Quantity: {{p.Quantity}} </h4>
+          <p>...</p>
+          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+</body>
+</html>

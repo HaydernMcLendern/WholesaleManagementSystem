@@ -1,25 +1,66 @@
-<HTML>
-<BODY>
-<form method="POST" action="">
-    <center>
-    Name: {{ testdata.Name }} <br>
-    Contact: {{ testdata.Contact}}
-    </center>
-</form>
-</BODY>
-</HTML>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Welcome</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+body  {
+  background-image: url("");
+  background-repeat:repeat;
+  background-size: 1600px 710px;
+  background-color: #cccccc;
+}
+.jumbotron {
+ background-image: url("static/WelcomeImg.jpg");
+ background-attachment: fixed;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+ padding-top: 120px;
+    padding-bottom: 120px;
+}
+.col-sm-4{
+background-color: rgba(0,0,0,0.5)
+}
+
+.center {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  text-align: center;
+}
+
+</style>
+</head>
+<body  style="background-color:#F8F9F9">
+
+<div class="jumbotron text-center">
+  <h1>Whole Sale Management System</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8" style="opacity: 0.5;"><br><br>
+      <h3>Welcome to our website</h3><br>
+      <p>Please click on customer button to proceed with purchases...</p>
+
+    </div>
+    <div class="col-sm-4" style="background-color:#F8F9F9;"><br><br>
+      <h4>Click on Button to go to login page</h4><br><br>
+	  <a href="/login" class="btn btn-default btn-lg" role="button">Customer</a>&nbsp;&nbsp;&nbsp;
+	  <a href="/admin" class="btn btn-default btn-lg" role="button">Admin</a>
+    </div>
+  </div>
+</div>
+
+<div class="center">
+  <a href="/products" class="btn btn-default btn-lg" role="button">Products</a>
+</div>
 
 
-<!-- {% block header %}
-	<h1>{% block title %} Ptrak User Homepage {% endblock %}</h1>
-{% endblock %}
-
-{% block content %}
-	<div class="container">
-		<br>
-		{% if g.user %}
-		Logged in as {{ demystify(g.user['email']) }}
-		{% endif %}
-
-	</div>
-{% endblock %} -->
+</body>
+</html>

@@ -1,4 +1,3 @@
-""" """
 import os
 from flask import Flask, render_template, session, g, url_for
 from wholesale.db import get_db
@@ -68,6 +67,34 @@ def create_app(test_config=None):
                 )
                 testdata = dbcursor.fetchone()
                 return render_template('index.html', testdata=testdata)
+            except:
+                return render_template('index.html')
+
+        @app.route('/login')
+        def customerLogin():
+            try:
+                return render_template('customerlogin.html')
+            except:
+                return render_template('index.html')
+
+        @app.route('/admin')
+        def adminLogin():
+            try:
+                return render_template('adminlogin.html')
+            except:
+                return render_template('index.html')
+
+        @app.route('/products')
+        def products():
+            try:
+                dbcursor = get_db().cursor()
+                num = dbcursor.execute(
+                    'SELECT *'
+                    'FROM product'
+                )
+                productdata = dbcursor.fetchall()
+                print(productdata)
+                return render_template('productpage.html', productdata=productdata)
             except:
                 return render_template('index.html')
 
