@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %} Log In {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <div>
+      <h1> Reset Password: </h1>
+      <form action="" method="POST" name="reset_pwd">
+        <div>
+        <input type="password" placeholder="New Password" name="password1" />
+        <input type="password" placeholder="Retype New Password" name="password2" />
+        </div>
+        <input class="btn btn-default" type="submit" value="Reset Password"/>
+      </form>
+      {% if error %}
+          <p class="error"><strong>Error: </strong> {{error}} </p>
+      {% endif %}
+
+      {% for message in get_flashed_messages() %}
+          {{ message }}
+      {% endfor %}
+    </div>
+{% endblock %}

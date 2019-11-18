@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %} Log In {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1> Please Login: </h1>
+        <br />
+        <form action="" method="post">
+            <input type="text" placeholder="Email" name="email" value="{{ request.form.username }}" />
+            <input type="password" placeholder="Password" name="password" value="{{ request.form.password }}" />
+            <input class="btn btn-default" type="submit" value="Login" />
+        </form>
+        {% if error %}
+            <p class="error"><strong>Error: </strong> {{error}} </p>
+        {% endif %}
+
+        {% for message in get_flashed_messages() %}
+            {{ message }}
+        {% endfor %}
+    </div>
+{% endblock %}

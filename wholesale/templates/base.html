@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+	<title>{% block title %}{% endblock %} - PTrak</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='navbar.css')}}">
+
+{% block includes %}{% endblock %}
+
+	<div class="nav">
+			<a class="logo" href="{{ url_for('testindex') }}"> PTrak </a> <!-- WILL NEED TO CHANGE TO WELCOME PAGE-->
+			{% if g.user %}
+			<a href="{{ url_for('my.dashboard') }}"> Dashboard </a>
+			<a href="{{ url_for('my.messages') }}"> Messages </a>
+			{% endif %}
+		<div class="nav-right">
+		{% if g.user.level == 5 %}
+			<a href="{{ url_for('user.new') }}"> New User </a>
+		{% endif %}
+		{% if g.user %}
+			<a href="{{ url_for('user.logout') }}"> Logout </a>
+		{% else %}
+			<a href="{{ url_for('user.login') }}"> Login </a>
+		{% endif %}
+		</div>
+	</div>
+
+	<div id="spacing"></div>
+	<section class="content">
+		<header>
+			{% block header %}{% endblock %}
+		</header>
+		{% for message in get_flashed_messages() %}
+			<div class="flash">{{ message }} </div>
+		{% endfor %}
+		{% block content %}{% endblock %}

@@ -1,0 +1,41 @@
+.nav {
+  background-color: #333f;
+  overflow: hidden;
+}
+
+/* Overall styling for navbar*/
+.nav a {
+  float: left;
+  color: #ffff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+
+  border-left: solid 1px #222;
+  border-right: solid 1px #222;
+}
+
+/* Change background and text color when hovered over*/
+.nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Give logo some padding to the right to distinguish from a button*/
+a.logo {
+  padding-right: 20px;
+  border: none;
+}
+
+/* Logo Anchor tag will not change on hover*/
+a.logo:hover {
+  background-color: #333f;
+  color: #ffff;
+}
+
+.nav-right {
+  float: right;
+  border-left: solid 1px #222;
+  border-right: solid 1px #222;
+}
